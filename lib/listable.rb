@@ -16,7 +16,7 @@ module Listable
     elsif @start_date
       dates = @start_date.strftime("%D")
       if @end_date 
-        dates << " -- " + @end_date.strftime("%D")
+        dates << " -- " +  @end_date.strftime("%D")
       end
     else
       dates = "No date provided"
@@ -25,10 +25,17 @@ module Listable
   end
 
    def format_priority(priority)
-    value = " ⇧" if @priority == "high"
-    value = " ⇨" if @priority == "medium"
-    value = " ⇩" if @priority == "low"
-    value = "" if !@priority
+     if @priority == "high"
+      value = " ⇧"
+     elsif @priority == "medium"
+      value = " ⇨" 
+     elsif @priority == "low"
+      value = " ⇩"
+     elsif !@priority
+      value = ""
+    else
+      raise UdaciListErrors::InvalidPriorityValue, "#{priority} invalid value"  
+    end
     return value
   end
 end
