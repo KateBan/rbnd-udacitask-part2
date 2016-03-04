@@ -22,13 +22,17 @@ class UdaciList
     end
   end
 
-  def delete(index)
-    if index  > @items.length
-      raise UdaciListErrors::IndexExceedsListSize, "#{index} out of range."
-    else
-      @items.delete_at(index - 1)
-    end
+  def delete(*index)
+      check_list = [*index]
+      check_list.each do |i|
+        if i > @items.length
+          raise UdaciListErrors::IndexExceedsListSize, "#{i} out of range."
+        end
+      end
+      @items.delete_if.with_index {|_, index| check_list.include? index + 1}
+  
   end
+
   def give_title
     if @title
       return @title
