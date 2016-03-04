@@ -70,6 +70,9 @@ class UdaciList
     table = filter_for_table(@items)
     puts table
   end
+  def find_item(index)
+    @items[index - 1]
+  end
 end
 
  

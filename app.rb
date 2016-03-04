@@ -44,8 +44,14 @@ require_relative "lib/link"
 # DISPLAY UNTITLED LIST
 # ---------------------
  new_list.all
- new_list.delete(1,8)
- new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 #new_list.filter("event")
+
+# MY FEATURES
+# 1. Deletes multiple items at once
+new_list.delete(1,8)
+new_list.all
+# 2. Change priority of an item
+new_list.find_item(2).priority = "low"
+new_list.all
