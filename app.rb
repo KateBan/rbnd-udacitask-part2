@@ -47,4 +47,4 @@ require_relative "lib/link"
 
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
-# new_list.filter("event")
+new_list.filter("event")

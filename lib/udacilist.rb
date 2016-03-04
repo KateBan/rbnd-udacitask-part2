@@ -37,12 +37,35 @@ class UdaciList
       return @title
     end
   end
-  def all
-    puts "-" * give_title.length
-    puts @title
-    puts "-" * give_title.length
-    @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+  def filter(type)
+    filtered_items = []
+    if type == "todo"
+      filtered_items = items.selsect {|item| item.is_a?(TodoItem)}
+    elsif type == "event"
+      filtered_items = items.select {|item| item.is_a?(EventItem)}
+    elsif type == "link"
+      filtered_items = items.select {|item| item.is_a?(LinkItem)}
+    else
+      puts "There aren't any itmes with type ", "#{type}"
     end
+    table = filter_for_table(filtered_items)
+    puts table
+  end
+
+  def filter_for_table(list)
+    rows = []
+    list.each_with_index do |item, position|
+      rows << [position + 1, item.details]
+    end
+    Terminal::Table.new :title => give_title,
+    :headings => ["Num", "Type   Name                   Details"],
+    :rows => rows
+  end
+
+  def all
+    table = filter_for_table(@items)
+    puts table
   end
 end
+
+ 
