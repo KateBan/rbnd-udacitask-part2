@@ -1,13 +1,31 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
-2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+The gem I used is Terminal-Table: ASCII table generator.
+I used it to put the output in a table.
+2. Describe the two features you added to the project.
+  a) Feature 1 allows multiple deletions of items at once.
+  b) Feature 2 allows changing the priority level of an item. 
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+I spend about 10 hours.
+
 2. What was the most rewarding challenge you conquered?
+Completing the whole project was a challenge. There were times
+ I wanted to cry. Not kidding, but the
+feeling you get after you make something to work is wonderful!
+
 3. What two additional features did you build? Why?
+My first feature allows multiple items to be deleated at once.
+I think it is very cool to be able to delete as much 
+items as you want at once. It is efficient.
+My second featureallows you to change the priority
+level of an item. Because as we know priorities change, and 
+we should have option to switch them.
+
 4. Where do you still have room to grow?
+I've learned so much since I started this nano degree.
+But there is alwys room for more. I want to learn how to build 
+more complex apps.
