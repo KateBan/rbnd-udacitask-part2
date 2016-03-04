@@ -7,12 +7,9 @@ class UdaciList
   end
   def add(type, description, options={})
     type = type.downcase
-    if type == "todo"
-      @items.push TodoItem.new(description, options)
-    elsif type == "event"
-      @items.push EventItem.new(description, options)
-    elsif type == "link"
-      @items.push LinkItem.new(description, options)
+    allowed_types = { todo: TodoItem, link: LinkItem, event: EventItem }
+    if allowed_types.keys.include? type.to_sym
+      @items.push allowed_types[type.to_sym].new(description, options)
     else
       raise UdaciListErrors::InvalidItemType, "#{type} not supported."
     end
@@ -44,7 +41,7 @@ class UdaciList
   def filter(type)
     filtered_items = []
     if type == "todo"
-      filtered_items = items.selsect {|item| item.is_a?(TodoItem)}
+      filtered_items = items.select {|item| item.is_a?(TodoItem)}
     elsif type == "event"
       filtered_items = items.select {|item| item.is_a?(EventItem)}
     elsif type == "link"
